@@ -6,12 +6,28 @@
       <p class="c-footer__headline">Tags</p>
 
       <ul class="c-footer-list o-plain-list">
-        <li><a href="/tag/education/">Education</a></li>
-        <li><a href="/tag/inspiration/">Inspiration</a></li>
-        <li><a href="/tag/lifestyle/">Lifestyle</a></li>
-        <li><a href="/tag/nature/">Nature</a></li>
-        <li><a href="/tag/travel/">Travel</a></li>
-        <li><a href="/tag/work/">Work</a></li>
+        <li>
+          <a
+            [routerLink]="['']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a routerLink="/categories" routerLinkActive="active">Categories</a>
+        </li>
+        <li><a routerLink="/stores" routerLinkActive="active">Stores</a></li>
+        <li><a routerLink="/blogs" routerLinkActive="active">Blogs</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+        <li>
+          <a routerLink="/privacy" routerLinkActive="active">Privacy Policy</a>
+        </li>
+        <li>
+          <a routerLink="/termsandconditions" routerLinkActive="active"
+            >Terms & Conditions</a
+          >
+        </li>
       </ul>
     </div>
 
@@ -54,8 +70,7 @@
         <div class="o-grid">
           <div class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m">
             <div class="u-type-xs c-footer__copyright">
-              &copy; 2023 VestureDebate &ndash; Published with
-              <a href="https://www.google.com">Buymedeal Team</a>
+              &copy; 2023 VestureDebate &ndash; Published with Buymedeal Team
             </div>
           </div>
 
@@ -112,7 +127,7 @@
                   target="_blank"
                   rel="noopener"
                 >
-                <fa-icon [icon]="faLinkedIn"></fa-icon>
+                  <fa-icon [icon]="faLinkedIn"></fa-icon>
                   <!-- <span
                     class="c-social-icons__icon"
                     data-icon="ei-sc-linkedin"
