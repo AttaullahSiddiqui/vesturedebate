@@ -1,128 +1,147 @@
-<header class="c-header">
-  <div class="o-grid o-grid--center">
-    <div class="o-grid__col o-grid__col--3-4-s o-grid__col--1-3-l">
-      <div class="c-logo">
-        <div class="c-logo__dark">
-          <a class="c-logo__link" href="https://melaka.aspirethemes.com"
-            >Melaka</a
-          >
-        </div>
+<div class="js-off-canvas-container c-off-canvas-container">
+  <div>
+    <div class="o-grid">
+      <div class="o-grid__col o-grid__col--full">
+        <header class="c-header">
+          <div class="o-grid o-grid--center">
+            <div class="o-grid__col o-grid__col--3-4-s o-grid__col--1-3-l">
+              <div class="c-logo">
+                <div class="c-logo__dark">
+                  <a class="c-logo__link" href="https://melaka.aspirethemes.com"
+                    >VestureDebate</a
+                  >
+                </div>
 
-        <div class="c-logo__light">
-          <a class="c-logo__link" href="https://melaka.aspirethemes.com"
-            >Melaka</a
-          >
-        </div>
-      </div>
-    </div>
+                <div class="c-logo__light">
+                  <a class="c-logo__link" href="https://melaka.aspirethemes.com"
+                    >VestureDebate</a
+                  >
+                </div>
+              </div>
+            </div>
 
-    <div class="o-grid__col o-grid__col--1-4-s o-grid__col--2-3-l">
-      <div class="c-off-canvas-content js-off-canvas-content">
-        <div
-          class="js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close"
-        >
-          <span class="c-off-canvas-toggle__icon"></span>
-        </div>
-
-        <nav class="c-nav-wrap">
-          <ul class="c-nav o-plain-list">
-            <li class="c-nav__item">
-              <a
-                href="https://melaka.aspirethemes.com/about/"
-                class="c-nav__link"
-                >About</a
-              >
-            </li>
-            <li class="c-nav__item">
-              <a
-                href="https://melaka.aspirethemes.com/authors/"
-                class="c-nav__link"
-                >Authors</a
-              >
-            </li>
-            <li class="c-nav__item">
-              <a
-                href="https://melaka.aspirethemes.com/tags/"
-                class="c-nav__link"
-                >Tags</a
-              >
-            </li>
-            <li class="c-nav__item">
-              <a
-                href="https://melaka.aspirethemes.com/elements/"
-                class="c-nav__link"
-                >Elements</a
-              >
-            </li>
-            <li class="c-nav__item">
-              <a
-                href="https://melaka.aspirethemes.com/contact/"
-                class="c-nav__link"
-                >Contact</a
-              >
-            </li>
-
-            <li class="c-nav__item is-membership">
-              <a href="#/portal/signin" class="c-btn c-btn--mini c-btn--light"
-                >Log in</a
-              >
-            </li>
-            <li class="c-nav__item is-membership">
-              <a href="#/portal/signup" class="c-btn c-btn--mini c-btn--action"
-                >Subscribe</a
-              >
-            </li>
-
-            <li class="c-nav__item">
-              <button
-                class="c-nav__link c-color-mode-btn js-mode-toggle js-mode-toggle-title"
-                title="Enable dark mode"
-              >
-                <span class="u-hidden-visually js-mode-toggle-text"
-                  >Enable dark mode</span
+            <div class="o-grid__col o-grid__col--1-4-s o-grid__col--2-3-l">
+              <div class="c-off-canvas-content js-off-canvas-content">
+                <div
+                  class="js-off-canvas-toggle c-off-canvas-toggle c-off-canvas-toggle--close"
                 >
-                <span class="c-color-mode-btn__icon" aria-hidden="true"></span>
-              </button>
-            </li>
+                  <span class="c-off-canvas-toggle__icon"></span>
+                </div>
 
-            <li class="c-nav__item">
-              <button
-                class="gh-search-icon"
-                aria-label="search"
-                data-ghost-search
-                style="
-                  display: inline-flex;
-                  justify-content: center;
-                  align-items: center;
-                  width: 32px;
-                  height: 32px;
-                  padding: 0;
-                  border: 0;
-                  color: inherit;
-                  background-color: transparent;
-                  cursor: pointer;
-                  outline: none;
-                "
-              >
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-                  <path
-                    d="M14.949 14.949a1 1 0 0 1 1.414 0l6.344 6.344a1 1 0 0 1-1.414 1.414l-6.344-6.344a1 1 0 0 1 0-1.414Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm-9 7a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
+                <nav class="c-nav-wrap">
+                  <ul class="c-nav o-plain-list">
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      [routerLink]="['']"
+                      routerLinkActive="active"
+                      [routerLinkActiveOptions]="{ exact: true }"
+                    >
+                      <a class="c-nav__link">Home</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/categories"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">Categories</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/stores"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">Stores</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">Blogs</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/about"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">About</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/privacy"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">Privacy</a>
+                    </li>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/termsandconditions"
+                      routerLinkActive="active"
+                    >
+                      <a class="c-nav__link">Terms</a>
+                    </li>
+                    <li class="c-nav__item cursor-pointer">
+                      <button
+                        class="c-nav__link c-color-mode-btn js-mode-toggle js-mode-toggle-title"
+                        title="Enable dark mode"
+                      >
+                        <span class="u-hidden-visually js-mode-toggle-text"
+                          >Enable dark mode</span
+                        >
+                        <span
+                          class="c-color-mode-btn__icon"
+                          aria-hidden="true"
+                        ></span>
+                      </button>
+                    </li>
 
-      <div class="js-off-canvas-toggle c-off-canvas-toggle">
-        <span class="c-off-canvas-toggle__icon"></span>
+                    <li class="c-nav__item cursor-pointer">
+                      <button
+                        class="gh-search-icon"
+                        aria-label="search"
+                        data-ghost-search
+                        style="
+                          display: inline-flex;
+                          justify-content: center;
+                          align-items: center;
+                          width: 32px;
+                          height: 32px;
+                          padding: 0;
+                          border: 0;
+                          color: inherit;
+                          background-color: transparent;
+                          cursor: pointer;
+                          outline: none;
+                        "
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M14.949 14.949a1 1 0 0 1 1.414 0l6.344 6.344a1 1 0 0 1-1.414 1.414l-6.344-6.344a1 1 0 0 1 0-1.414Z"
+                            fill="currentColor"
+                          />
+                          <path
+                            d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm-9 7a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+
+              <div class="js-off-canvas-toggle c-off-canvas-toggle">
+                <span class="c-off-canvas-toggle__icon"></span>
+              </div>
+            </div>
+          </div>
+        </header>
       </div>
     </div>
   </div>
-</header>
+</div>
