@@ -1938,7 +1938,7 @@ a.kg-bookmark-container:hover .kg-bookmark-title {
 .kg-btn:focus,
 .kg-btn:hover {
   color: var(--color-white);
-  background-color: var(--color-brand);
+  /* background-color: var(--color-brand); */
   text-decoration: none;
 }
 .c-btn--disabled {

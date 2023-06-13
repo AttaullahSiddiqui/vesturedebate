@@ -106,17 +106,17 @@ export class AuthService implements CanActivate {
         }
         case '/': {
           this.titleService.setTitle(
-            'OutOnaBudget | Relish the acute deals & offers at home solely from OutonaBudget.'
+            'VestureDebate | Relish the acute deals & offers at home solely from VestureDebate.'
           );
           this.metaService.updateTag({
             name: 'description',
             content:
-              'Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with vesturedebate.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with vesturedebate.com.',
+              'Discover a world of shopping delights! Explore our captivating blog for expert tips, trends, and irresistible deals that will transform your shopping experience',
           });
           this.metaService.updateTag({
             property: 'og:description',
             content:
-              'Beyond belief, now you can encounter the simplistic and rouse shopping experience at your home with vesturedebate.com. Discover the trendy and your preferred products from copious online stores with multitude coupons, vouchers and promo codes. We make trusty customers from all around the world by offering the finest and leading deals, so they can do firm believe on us and get the things that their heart always wished for. We are on a mission to provide immense enormous discounts on lavish brands in just a single click at ease. Now you can get the amazing deals with vesturedebate.com.',
+              'Discover a world of shopping delights! Explore our captivating blog for expert tips, trends, and irresistible deals that will transform your shopping experience',
           });
           this.metaService.updateTag({
             property: 'og:title',
