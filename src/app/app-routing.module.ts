@@ -11,9 +11,15 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { BlogComponent } from './blog/blog.component';
 import { StoreComponent } from './store/store.component';
 import { StoresComponent } from './stores/stores.component';
+import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthService] },
+  {
+    path: 'services',
+    component: ServicesComponent,
+    canActivate: [AuthService],
+  },
   {
     path: 'categories',
     component: CategoriesComponent,
@@ -30,7 +36,7 @@ const routes: Routes = [
     canActivate: [AuthService],
   },
   {
-    path: 'store/:id',
+    path: 'stores/:id',
     component: StoreComponent,
     canActivate: [AuthService],
   },

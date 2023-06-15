@@ -27,6 +27,7 @@ import { StoresComponent } from './stores/stores.component';
 import { StoreComponent } from './store/store.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { BlogComponent } from './blog/blog.component';
+import { ServicesComponent } from './services/services.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { BlogComponent } from './blog/blog.component';
     StoreComponent,
     BlogsComponent,
     BlogComponent,
+    ServicesComponent,
   ],
   imports: [
     BrowserModule,

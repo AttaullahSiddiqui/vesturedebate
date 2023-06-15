@@ -57,6 +57,17 @@ export class HeaderComponent implements OnInit {
       // else this._dataService.errorToast(res.message);
     });
   }
+  showSearchBar(url: string) {
+    var location = window.location.pathname;
+    return location.includes(url);
+  }
+  showSearchBarArray(url: Array<string>) {
+    var location = window.location.pathname;
+    for (var i = 0; i < url.length; i++) {
+      if (location.includes(url[i])) return true;
+    }
+    return false;
+  }
   onSwiper(swiper: any) {
     swiper.update();
   }

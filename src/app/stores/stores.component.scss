@@ -1,0 +1,16 @@
+h3.storeNameHead{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+p.storeDesc{
+    font-size: 1.25em;
+    line-height: 1.4em;
+    padding-right: 25px;
+    margin-left: 10px;
+}
+div.storesImg,div.storesImg > img{
+    min-width: 100px !important;
+    min-height: 100px !important;
+    border-radius: 50%;
+}
