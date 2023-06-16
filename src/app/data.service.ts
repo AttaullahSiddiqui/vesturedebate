@@ -88,9 +88,10 @@ export class DataService {
       showCloseButton: true,
       showCancelButton: true,
       focusConfirm: false,
-      confirmButtonText: '<fa-icon [icon]="faThumbsUp"></fa-icon> Shop Now',
+      confirmButtonText: 'Shop Now',
+      // confirmButtonText: '<fa-icon [icon]="faThumbsUp"></fa-icon> Shop Now',
       confirmButtonAriaLabel: 'Shop Now button',
-    }).then((result:any) => {
+    }).then((result: any) => {
       if (result.isConfirmed) window.open(editObj.code, '_blank');
     });
   }
