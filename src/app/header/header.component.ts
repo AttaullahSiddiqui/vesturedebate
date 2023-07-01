@@ -19,6 +19,7 @@ import { faBars, faAdd } from '@fortawesome/free-solid-svg-icons';
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent implements OnInit {
+  switch = false;
   faMenuIcon = faBars;
   faAdd = faAdd;
   config: SwiperOptions = {
@@ -47,6 +48,7 @@ export class HeaderComponent implements OnInit {
   };
   slideArray = null;
   smallScreen: Boolean = false;
+  searchInput = null;
 
   constructor(private _dataService: DataService, private router: Router) {}
 
@@ -67,6 +69,11 @@ export class HeaderComponent implements OnInit {
       if (location.includes(url[i])) return true;
     }
     return false;
+  }
+  focusOutFunc() {
+    setTimeout(() => {
+      this.switch = false;
+    }, 100);
   }
   onSwiper(swiper: any) {
     swiper.update();
