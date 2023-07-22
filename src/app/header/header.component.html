@@ -53,7 +53,7 @@
                       class="c-nav__item cursor-pointer"
                       routerLink="/blogs/travel"
                       *ngFor="let cat of forBlogCategories | keyvalue"
-                      [routerLink]="['/category', cat.value.categoryURL]"
+                      [routerLink]="['/blogs', cat.value._id]"
                     >
                       <a class="c-nav__link">{{ cat.value.name }}</a>
                     </li>
