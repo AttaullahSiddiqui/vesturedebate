@@ -67,7 +67,7 @@ function fetchSlides(req, res) {
 }
 
 function fetchTopStores(req, res) {
-  Store.find({ editorChoice: true }, "img storeURL name trackUrl")
+  Store.find({ editorChoice: true }, "img storeURL name trackUrl shortDes")
     .limit(Number(req.query.limitNo))
     .exec(function (err, stores) {
       if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
@@ -523,6 +523,7 @@ function searchQuery(req, res) {
     });
 }
 function fetchBlogsWithLimit(req, res) {
+  console.log(req.query)
   var queryObj = {};
   if (req.query.quer) {
     if (req.query.quer != "null") queryObj.categoryRef = req.query.quer;

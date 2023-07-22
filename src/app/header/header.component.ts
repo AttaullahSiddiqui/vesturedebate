@@ -49,15 +49,17 @@ export class HeaderComponent implements OnInit {
   slideArray = null;
   smallScreen: Boolean = false;
   searchInput = null;
+  forBlogCategories: Array<any> = [];
 
   constructor(private _dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
     if (window.screen.width < 830) this.smallScreen = true;
-    this._dataService.fetchAPI('/userDisplay/fetchSlides').subscribe((res) => {
-      if (res.data) this.slideArray = res.data;
-      // else this._dataService.errorToast(res.message);
-    });
+    this._dataService
+      .fetchAPI('/userDisplay/fetchForBlogCategories')
+      .subscribe((res) => {
+        if (res.data) this.forBlogCategories = res.data;
+      });
   }
   showSearchBar(url: string) {
     var location = window.location.pathname;

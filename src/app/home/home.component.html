@@ -1,15 +1,11 @@
 <div class="o-wrapper">
   <div class="o-grid js-grid">
-    <div
+    <!-- <div
       class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap o-grid__col--4-4-m o-grid__col--4-4-l o-grid__col--initial-grow"
     >
       <div class="c-post-card c-post-card--first c-post-card--with-image">
         <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
+          <a class="c-post-card__image-wrap" aria-hidden="true" tabindex="-1">
             <img
               alt="Organizing Your Content with Ghost"
               class="c-post-card__image"
@@ -37,24 +33,36 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <swiper
+      [config]="config"
+      class="swiper-h" 
+      [ngClass]="{ mobileView: smallScreen }"
+      (swiper)="onSwiper($event)"
+      #newSwiper
+    >
+      <ng-template swiperSlide *ngFor="let slide of slideArray | keyvalue"
+        ><img
+          [src]="slide.value.img"
+          class="sliderImg"
+          alt="Random slide picture"
+          (click)="openLink(slide.value.link)"
+      /></ng-template>
+    </swiper>
+    
     <div
       class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
+      *ngFor="let blog of blogArray | keyvalue"
+      [routerLink]="['/blog', blog.value.blogURL]"
     >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
+      <div class="c-post-card c-post-card--with-image">
         <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
+          <a class="c-post-card__image-wrap" aria-hidden="true" tabindex="-1">
             <img
               alt="A Documentary About the Important Things"
               class="c-post-card__image"
-              src="../../assets/images/woodwatch--Hr_uHRfImo-unsplash-1.jpg"
+              [src]="blog.value.img"
             />
           </a>
           <span title="Featured Post">
@@ -68,365 +76,19 @@
 
         <div class="c-post-card__content">
           <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              A Documentary About the Important Things
+            <a class="c-post-card__title-link">
+              {{ blog.value.title | slice : 0 : 40 }}
             </a>
           </h2>
           <div class="c-post-card__meta">
             <div class="c-post-card__author">
-              <a>William James</a>
+              <a>{{ blog.value.author }}</a>
             </div>
             <time
               class="c-post-card__date"
               datetime="2018-11-29"
               title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="A Rich Life with Less Stuff | the Minimalists"
-              class="c-post-card__image"
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-1.jpg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              A Rich Life with Less Stuff | the Minimalists
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Amelia Harry</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="Ghost Publishing Options Techniques"
-              class="c-post-card__image"
-              src="../../assets/images/woodwatch-taIc-HAgGgc-unsplash.jpg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              Ghost Publishing Options Techniques
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Sara James</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="Managing Ghost Admin Settings"
-              class="c-post-card__image"
-              src="../../assets/images/ruta-celma-AQvfA3bRLVs-unsplash-1.jpg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              Managing Ghost Admin Settings
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Sara James</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="Days of Wine and Roses with James Comey"
-              class="c-post-card__image"
-              src="../../assets/images/brooke-cagle-EnE-o3P-WOY-unsplash.jpg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              Days of Wine and Roses with James Comey
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Olivia Thomas</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="It would be totally painless unconscious"
-              class="c-post-card__image"
-              src="../../assets/images/photo-1567103477235-e34a3d5da8a2-1.jpeg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              It would be totally painless unconscious
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Amelia Harry</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="Hubble Daily Contacts. Better Price"
-              class="c-post-card__image"
-              src="../../assets/images/photo-1562101997-7bc9a0279b02-1.jpeg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              Hubble Daily Contacts. Better Price
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Amelia Harry</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2018-11-29"
-              title="29 November 2018"
-              >29.Nov.2018</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="Opportunity to use your voice you should use"
-              class="c-post-card__image"
-              src="../../assets/images/photo-1567441076134-8f80ef850fc5-1.jpeg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              Opportunity to use your voice you should use
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Olivia Thomas</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2017-03-27"
-              title="27 March 2017"
-              >27.Mar.2017</time
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
-    >
-      <div
-        class="c-post-card c-post-card--with-image"
-        [routerLink]="['/blog', 'blogname']"
-      >
-        <div class="c-post-card__media">
-          <a
-            class="c-post-card__image-wrap"
-            aria-hidden="true"
-            tabindex="-1"
-          >
-            <img
-              alt="The New Rules of Personal Finance"
-              class="c-post-card__image"
-              src="../../assets/images/photo-1567225557594-88d73e55f2cb-1.jpeg"
-            />
-          </a>
-        </div>
-
-        <div class="c-post-card__content">
-          <h2 class="c-post-card__title">
-            <a
-              class="c-post-card__title-link"
-            >
-              The New Rules of Personal Finance
-            </a>
-          </h2>
-          <div class="c-post-card__meta">
-            <div class="c-post-card__author">
-              <a>Sara James</a>
-            </div>
-            <time
-              class="c-post-card__date"
-              datetime="2017-03-27"
-              title="27 March 2017"
-              >27.Mar.2017</time
+              >{{ blog.value.CreatedAt | date : "MMM d" }}</time
             >
           </div>
         </div>
@@ -441,7 +103,9 @@
           <div
             class="o-grid__col o-grid__col--center o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l"
           >
-            <button class="c-btn c-btn--full js-load-posts">More Posts</button>
+            <button class="c-btn c-btn--full js-load-posts" routerLink="/blogs">
+              More Blogs
+            </button>
           </div>
         </div>
       </div>
@@ -462,9 +126,7 @@
         </div>
 
         <div class="o-grid__col">
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 It would be totally painless unconscious
@@ -486,9 +148,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 We have to put a barrier between us and the world!
@@ -510,9 +170,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 If you have an opportunity to use your voice!
@@ -534,9 +192,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 And that&#x27;s the double-truth, Ruth
@@ -597,9 +253,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 We have to put a barrier between us and the world!
@@ -621,9 +275,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 It Would Be Totally Painless - They&#x27;d Just Slip
@@ -645,9 +297,7 @@
               />
             </div>
           </a>
-          <a
-            class="c-teaser"
-          >
+          <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
                 Eddie Kim somehow managed to fill the snakes.
@@ -682,8 +332,7 @@
     <div class="o-grid__col o-grid__col--full">
       <div class="c-title-bar">
         <h3 class="c-title-bar__title">
-          <a
-            class="c-title-bar__link u-font-size-small"
+          <a class="c-title-bar__link u-font-size-small"
             >Tags<span data-icon="ei-chevron-right" data-size="s"></span
           ></a>
         </h3>
@@ -763,9 +412,8 @@
     <div class="o-grid__col o-grid__col--full">
       <div class="c-title-bar">
         <h3 class="c-title-bar__title">
-          <a
-            class="c-title-bar__link"
-            >Authors <span data-icon="ei-chevron-right" data-size="s"></span
+          <a class="c-title-bar__link"
+            >Brands <span data-icon="ei-chevron-right" data-size="s"></span
           ></a>
         </h3>
       </div>
@@ -775,12 +423,13 @@
   <div class="o-grid">
     <div
       class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-card-author-wrap"
+      *ngFor="let store of storeArray | keyvalue; index as i"
     >
       <a class="c-card-author">
         <div class="c-card-author__media">
           <img
             class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
+            [src]="store.value.img"
             alt="Olivia Thomas"
             width="64"
             height="64"
@@ -788,9 +437,10 @@
         </div>
 
         <div class="c-card-author__content">
-          <h3 class="c-card-author__name">Olivia Thomas</h3>
+          <h3 class="c-card-author__name">{{ store.value.name }}</h3>
+          <p hidden [innerHTML]="store.value.shortDes" #storeDes></p>
           <p class="c-card-author__bio">
-            I love creating clean and minimal websites.
+            {{ getInnerText(storeDes) | slice : 0 : 100 }}
           </p>
         </div>
       </a>

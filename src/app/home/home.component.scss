@@ -1,0 +1,18 @@
+@import "swiper/css/bundle";
+
+.swiper-slide img {
+  width: 100% !important;
+}
+// swiper.mySwiper {
+//   width: 80% !important;
+// }
+swiper.swiper-h {
+  margin-bottom: 50px;
+//   z-index: -1;
+}
+swiper.mobileView{
+    z-index: -1;
+}
+img.sliderImg {
+  cursor: pointer;
+}

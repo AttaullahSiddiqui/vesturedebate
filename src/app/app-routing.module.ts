@@ -41,6 +41,7 @@ const routes: Routes = [
     canActivate: [AuthService],
   },
   { path: 'blogs', component: BlogsComponent, canActivate: [AuthService] },
+  { path: 'blogs/:id', component: BlogsComponent, canActivate: [AuthService] },
   { path: 'blog/:id', component: BlogComponent, canActivate: [AuthService] },
   { path: 'about', component: AboutComponent, canActivate: [AuthService] },
   { path: 'privacy', component: PrivacyComponent, canActivate: [AuthService] },

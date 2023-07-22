@@ -2407,6 +2407,7 @@ a.kg-bookmark-container:hover .kg-bookmark-title {
   -ms-flex-direction: column;
   flex-direction: column;
   margin-bottom: 32px;
+  z-index: -1;
 }
 
 @media (min-width: 64em) {

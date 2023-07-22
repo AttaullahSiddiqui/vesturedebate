@@ -4,7 +4,7 @@ const config = {
     development: "mongodb://localhost:27017/duarestaurant",
     // production: 'mongodb+srv://danish:buymedeal123@cluster0.qmhmg.mongodb.net/main?retryWrites=true&w=majority'
     production:
-      "mongodb+srv://attaullah:vesturedebate@cluster0.g2rpomi.mongodb.net/?retryWrites=true&w=majority",
+      "mongodb+srv://attaullah:vesturedebate@cluster0.g2rpomi.mongodb.net/main?retryWrites=true&w=majority",
   },
   JWT: {
     secretKey: "hfgs97454089jbjsdfsdvf87032603jb",

@@ -49,24 +49,44 @@
                     >
                       <a class="c-nav__link">Home</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
-                      <a class="c-nav__link">Travel</a>
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/travel"
+                      *ngFor="let cat of forBlogCategories | keyvalue"
+                      [routerLink]="['/category', cat.value.categoryURL]"
+                    >
+                      <a class="c-nav__link">{{ cat.value.name }}</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
+                    <!-- <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/food"
+                    >
                       <a class="c-nav__link">Food</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/style"
+                    >
                       <a class="c-nav__link">Style</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/pets"
+                    >
                       <a class="c-nav__link">Pets</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/health"
+                    >
                       <a class="c-nav__link">Health</a>
                     </li>
-                    <li class="c-nav__item cursor-pointer" routerLink="/blogs">
+                    <li
+                      class="c-nav__item cursor-pointer"
+                      routerLink="/blogs/fitness"
+                    >
                       <a class="c-nav__link">Fitness</a>
-                    </li>
+                    </li> -->
                     <!-- <li
                       class="c-nav__item cursor-pointer"
                       routerLink="/categories"
@@ -226,7 +246,8 @@
               class="mb-0"
               [(ngModel)]="searchInput"
               (focus)="switch = true"
-              (focusout)="focusOutFunc()" style="color: black !important;"
+              (focusout)="focusOutFunc()"
+              style="color: black !important"
             />
           </div>
         </div>
