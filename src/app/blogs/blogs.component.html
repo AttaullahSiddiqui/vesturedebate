@@ -26,7 +26,7 @@
         <div class="c-post-card__content">
           <h2 class="c-post-card__title">
             <a class="c-post-card__title-link">
-             {{ blog.value.title}}
+              {{ blog.value.title }}
             </a>
           </h2>
           <div class="c-post-card__meta">
@@ -47,5 +47,6 @@
         </div>
       </div>
     </div>
+    <p *ngIf="noBlogFound" class="noBlogFound">No blogs found..</p>
   </div>
 </div>

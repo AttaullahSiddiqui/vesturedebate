@@ -2,10 +2,8 @@
   <div class="o-grid">
     <div class="o-grid__col o-grid__col--full">
       <div class="c-archive">
-        <br>
-        <h1 class="c-archive__title">
-          Featured Deals
-        </h1>
+        <br />
+        <h1 class="c-archive__title">Featured Deals</h1>
       </div>
     </div>
   </div>
@@ -16,96 +14,32 @@
     >
       <div class="o-grid">
         <div class="o-grid__col">
-          <a class="c-teaser">
+          <a class="c-teaser" *ngFor="let coupon of couponsArray | keyvalue">
             <div class="c-teaser__content">
-              <br />
               <h3 class="c-teaser__title couponTitle">
-                It would be totally painless unconscious
+                {{ coupon.value.offerBox }}
               </h3>
               <br /><br />
               <button
                 class="c-btn c-subscribe-form__btn couponBtn"
-                (click)="getDealFunc()"
+                *ngIf="coupon.value.activeStatus"
+                (click)="getDealFunc(coupon.value)"
               >
                 Get Deal
               </button>
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="It would be totally painless unconscious"
-                src="../../assets/images/photo-1567103477235-e34a3d5da8a2-1.jpeg"
-                width="100"
-                height="95"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title couponTitle">
-                We have to put a barrier between us and the world!
-              </h3>
-              <br /><br />
               <button
                 class="c-btn c-subscribe-form__btn couponBtn"
-                (click)="getDealFunc()"
+                *ngIf="!coupon.value.activeStatus"
+                (click)="showCopyCodeDialog(coupon.value)"
               >
-                Get Deal
+                Copy Code
               </button>
             </div>
             <div class="c-teaser__media">
               <img
-                class="c-teaser__image"
-                title="We have to put a barrier between us and the world!"
-                src="../../assets/images/photo-1524136964799-6ba980a735f7-3.jpg"
-                width="100"
-                height="95"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title couponTitle">
-                If you have an opportunity to use your voice!
-              </h3>
-              <br /><br />
-              <button
-                class="c-btn c-subscribe-form__btn couponBtn"
-                (click)="getDealFunc()"
-              >
-                Get Deal
-              </button>
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="If you have an opportunity to use your voice!"
-                src="https://images.unsplash.com/photo-1526914383140-112d83e90d80?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;w&#x3D;176"
-                width="100"
-                height="95"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title couponTitle">
-                And that&#x27;s the double-truth, Ruth
-              </h3>
-              <br /><br />
-              <button
-                class="c-btn c-subscribe-form__btn couponBtn"
-                (click)="getDealFunc()"
-              >
-                Get Deal
-              </button>
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="And that&#x27;s the double-truth, Ruth"
-                src="../../assets/images/photo-1567016557389-5246a1940bdc.jpeg"
-                width="100"
-                height="95"
+                class="c-teaser__image featuredStoreImg"
+                alt="Featured store image"
+                [src]="coupon.value.storeId.img"
               />
             </div>
           </a>

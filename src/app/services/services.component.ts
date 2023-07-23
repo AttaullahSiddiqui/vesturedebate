@@ -48,6 +48,7 @@ export class ServicesComponent implements OnInit {
 
   smallScreen: Boolean = false;
   currentDate = Date.now();
+
   constructor(
     private route: ActivatedRoute,
     private _dataService: DataService,
@@ -57,18 +58,15 @@ export class ServicesComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-    if (window.screen.width < 450) this.mobile = true;
     if (window.screen.width < 830) this.smallScreen = true;
-    this.route.paramMap.subscribe((paramMap) => {
-      this.storeURLToShow = paramMap.get('id');
-      this.loadStoreData(this.storeURLToShow);
-    });
+    if (window.screen.width < 450) this.mobile = true;
+    this.loadFeaturedCoupons();
   }
-  loadCoupons(id: any) {
+  loadFeaturedCoupons() {
     if (this.isBusy) return;
     this.isBusy = true;
     this._dataService
-      .fetchWithQuery('/userDisplay/fetchCoupons', id)
+      .fetchAPI('/userDisplay/fetchFeaturedCoupons')
       .subscribe((res) => {
         if (res.data) {
           this.couponsArray = res.data;
@@ -80,78 +78,20 @@ export class ServicesComponent implements OnInit {
             this.couponsArray[i] = singleObj;
           }
           this.isBusy = false;
-        }
-        //  else this.errorHandler(res.message);
+        } else this.errorHandler(res.message);
       });
-  }
-  loadStoreData(id: any) {
-    this._dataService
-      .fetchWithQuery('/userDisplay/singleStoreData', id)
-      .subscribe((res) => {
-        if (res.data) {
-          this.storeURL = res.data['0']['_id'];
-          this.loadCoupons(this.storeURL);
-          this.storePic = res.data['0']['img'];
-          this.storeThumb = null;
-          if (res.data['0']['thumbImg'])
-            this.storeThumb = res.data['0']['thumbImg'];
-          this.storeDetail = res.data['0']['shortDes'];
-          this.longDes = res.data['0']['longDes'];
-          this.storeName =
-            res.data['0']['name'] + ' ' + res.data['0']['heading'];
-          this.storeName2 = res.data['0']['name'];
-          this.storeId = res.data['0']['storeURL'];
-          var tempDateVar = Number(res.data['0']['CreatedAt']);
-          this.storeDate =
-            this.monthNames[new Date(tempDateVar).getMonth()] +
-            ' ' +
-            new Date(tempDateVar).getFullYear();
-          this.titleService.setTitle(res.data['0']['metaTitle']);
-          this.metaService.updateTag({
-            name: 'description',
-            content: res.data['0']['metaDes'],
-          });
-          this.metaService.updateTag({
-            property: 'og:description',
-            content: res.data['0']['metaDes'],
-          });
-          this.backUpForStores = res.data['0']['categoryRef'][0];
-          // this.secondTabData(res.data['0']['categoryRef'][0])
-        }
-        //  else this.errorHandler(res.message);
-      });
-  }
-  loadAnotherStore(id: any) {
-    this.couponsArray = [];
-    this.storeDetail = null;
-    this.storeArray = [];
-    this.loadCoupons(id);
-    this.loadStoreData(id);
-    this.storeURLToShow = id;
-  }
-  goToLinkFeatured(link: any, productId: any, key: any) {
-    this.productsArray[key]['clicks']++;
-    window.open(link, '_blank');
-    this._dataService
-      .postAPI('/userDisplay/increaseProductClicks', { id: productId })
-      .subscribe((res) => {});
   }
   errorHandler(err: any) {
     this.isBusy = false;
     this._dataService.errorToast(err);
     window.scrollTo(0, 0);
   }
-
   showCopyCodeDialog(couponNode: any) {
-    // this.editObj = { ...couponNode };
-    // this._dataService.showCopyCodeAlert(this.editObj);
-    this._dataService.showCopyCodeAlert({
-      code: 'checkcode',
-      offerBox: 'checok offerbox',
-    });
-    // window.open(this.editObj.trackingLink, '_blank');
+    this.editObj = { ...couponNode };
+    this._dataService.showCopyCodeAlert(this.editObj);
+    window.open(this.editObj.trackingLink, '_blank');
   }
-  getDealFunc(couponNode?: any) {
+  getDealFunc(couponNode: any) {
     this.editObj = { ...couponNode };
     this._dataService.showGetDealAlert(this.editObj);
     window.open(this.editObj.trackingLink, '_blank');

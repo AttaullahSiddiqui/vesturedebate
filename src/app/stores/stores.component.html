@@ -1,7 +1,7 @@
 <div class="o-wrapper">
   <div class="o-grid">
     <div class="o-grid__col o-grid__col--full">
-      <br>
+      <br />
       <div class="c-archive">
         <h1 class="c-archive__title">Browse Stores for exciting deals</h1>
       </div>
@@ -11,321 +11,26 @@
   <div class="o-grid">
     <div
       class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
+      *ngFor="let store of storeArray | keyvalue"
+      [routerLink]="['/stores', store.value.storeURL]"
     >
       <a class="c-card-author">
         <div class="c-card-author__media storesImg">
           <img
             class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            alt="Amelia Harry"
-            width="90"
-            height="90"
+            [src]="store.value.img"
+            alt="Store Image"
           />
         </div>
 
         <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Amelia Harry</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            alt="Emily James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Emily James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="Olivia Thomas"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Olivia Thomas</h3>
-          <p class="c-card-author__bio storeDesc">
-            I love creating clean and minimal websites. I love creating clean
-            and minimal websites. I love creating clean and minimal websites. I
-            love creating clean and minimal websites. I love creating clean and
-            minimal websites. I love creating clean and minimal websites.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-1.jpg"
-            alt="Sara James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Sara James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="William James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">William James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Lorem ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem
-            ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum
-            dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor
-            sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit
-            amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit amet,
-            sit magna iracundia consectetuer.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="William James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">William James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Lorem ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem
-            ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum
-            dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor
-            sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit
-            amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit amet,
-            sit magna iracundia consectetuer.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            alt="Amelia Harry"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Amelia Harry</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            alt="Emily James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Emily James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="Olivia Thomas"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Olivia Thomas</h3>
-          <p class="c-card-author__bio storeDesc">
-            I love creating clean and minimal websites. I love creating clean
-            and minimal websites. I love creating clean and minimal websites. I
-            love creating clean and minimal websites. I love creating clean and
-            minimal websites. I love creating clean and minimal websites.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-1.jpg"
-            alt="Sara James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">Sara James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Author &amp; developer of Aspire Themes. Minimalist. Author &amp;
-            developer of Aspire Themes. Minimalist. Author &amp; developer of
-            Aspire Themes. Minimalist. Author &amp; developer of Aspire Themes.
-            Minimalist. Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="William James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">William James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Lorem ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem
-            ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum
-            dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor
-            sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit
-            amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit amet,
-            sit magna iracundia consectetuer.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--4-4-l c-card-author-wrap"
-      [routerLink]="['/stores', 'storename']"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media storesImg">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-2.jpg"
-            alt="William James"
-            width="90"
-            height="90"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name storeNameHead">William James</h3>
-          <p class="c-card-author__bio storeDesc">
-            Lorem ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem
-            ipsum dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum
-            dolor sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor
-            sit amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit
-            amet, sit magna iracundia consectetuer. Lorem ipsum dolor sit amet,
-            sit magna iracundia consectetuer.
-          </p>
+          <h3 class="c-card-author__name storeNameHead">
+            {{ store.value.name }}
+          </h3>
+          <p
+            class="c-card-author__bio storeDesc"
+            [innerHTML]="store.value.shortDes"
+          ></p>
         </div>
       </a>
     </div>

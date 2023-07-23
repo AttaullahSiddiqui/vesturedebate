@@ -1,7 +1,7 @@
 <div class="o-wrapper">
   <div class="o-grid">
     <div class="o-grid__col o-grid__col--full">
-      <br>
+      <br />
       <div class="c-archive">
         <h1 class="c-archive__title">
           Wild Women Tea Club <br />Vouchers & Discount codes
@@ -19,20 +19,19 @@
           <form>
             <!-- <input type="text" name="name" placeholder="Name" /> -->
             <br />
-            <select name="categories" id="categorySelect">
+            <select
+              name="categories"
+              id="categorySelect"
+              [(ngModel)]="selectCat"
+              (change)="secondaryFunc(selectCat)"
+            >
               <option value="" disabled selected>Select Category</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+              <option
+                [value]="cat.value.categoryURL"
+                *ngFor="let cat of categoryArr | keyvalue"
+              >
+                {{ cat.value.name }}
+              </option>
             </select>
             <!-- <input
               class="c-btn c-btn--small c-btn--active"
@@ -45,32 +44,20 @@
     </div>
     <div
       class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--2-3-l"
+      *ngIf="!isLoading"
     >
       <div class="o-grid">
         <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
+          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l"
+          *ngIf="noStoreFound"
         >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
+          <p class="noStoreInCategpry">No store in this Category</p>
         </div>
+
         <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
+          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l"
+          *ngFor="let store of storeArr | keyvalue"
+          [routerLink]="['/stores', store.value.storeURL]"
         >
           <div
             class="c-card-author__media"
@@ -87,139 +74,8 @@
                 width: 115px !important;
                 height: 115px !important;
               "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            />
-          </div>
-        </div>
-        <div
-          class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l" [routerLink]="['/stores', 'storename']"
-        >
-          <div
-            class="c-card-author__media"
-            style="
-              margin: 15px auto;
-              width: 115px !important;
-              height: 115px !important;
-            "
-          >
-            <img
-              class="c-card-author__image"
-              style="
-                margin: 15px auto;
-                width: 115px !important;
-                height: 115px !important;
-              "
-              src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
+              [src]="store.value.img"
+              alt="Store Image"
             />
           </div>
         </div>

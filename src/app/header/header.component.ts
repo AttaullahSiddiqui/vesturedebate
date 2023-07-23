@@ -50,6 +50,9 @@ export class HeaderComponent implements OnInit {
   smallScreen: Boolean = false;
   searchInput = null;
   forBlogCategories: Array<any> = [];
+  searchText: string = '';
+  noResult = false;
+  storeArray: Array<any> = [];
 
   constructor(private _dataService: DataService, private router: Router) {}
 
@@ -71,6 +74,18 @@ export class HeaderComponent implements OnInit {
       if (location.includes(url[i])) return true;
     }
     return false;
+  }
+  searchFunc(queri: any) {
+    if (!queri) return;
+    this.noResult = false;
+    this.storeArray = [];
+    this._dataService
+      .fetchAPIWithLimit('/userDisplay/searchQuery', 10, queri, '')
+      .subscribe((res) => {
+        if (res.data) {
+          this.storeArray = res.data;
+        } else this.noResult = true;
+      });
   }
   focusOutFunc() {
     setTimeout(() => {

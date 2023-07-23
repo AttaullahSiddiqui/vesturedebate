@@ -61,6 +61,8 @@ export class HomeComponent implements OnInit {
   couponsArray = null;
   slideArray = null;
   blogArray: Array<any> = [];
+  randomBlogs: Array<any> = [];
+  randomStores: Array<any> = [];
   smallScreen: Boolean = false;
   forBlogCategories: Array<any> = [];
 
@@ -83,9 +85,19 @@ export class HomeComponent implements OnInit {
         if (res.data) this.blogArray = res.data;
       });
     this._dataService
+      .fetchOnlyLimit('/userDisplay/fetchRandomBlogs', 8)
+      .subscribe((res) => {
+        if (res.data) this.randomBlogs = res.data;
+      });
+    this._dataService
       .fetchOnlyLimit('/userDisplay/fetchTopStores', 9)
       .subscribe((res) => {
         if (res.data) this.storeArray = res.data;
+      });
+    this._dataService
+      .fetchOnlyLimit('/userDisplay/fetchRandomStores', 4)
+      .subscribe((res) => {
+        if (res.data) this.randomStores = res.data;
       });
   }
 

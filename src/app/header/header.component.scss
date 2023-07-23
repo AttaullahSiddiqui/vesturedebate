@@ -19,3 +19,13 @@ div.mw50{
 .mb-0{
   margin-bottom: 0 !important;
 }
+div.c-teaser__content > img{
+  float: left;
+}
+div.c-teaser__content > h2{
+  line-height: 60px;
+}
+div.controlOverflow{
+  max-height: 70vh;
+  overflow-y: scroll;
+}

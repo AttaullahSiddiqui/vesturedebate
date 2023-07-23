@@ -27,6 +27,7 @@ module.exports = {
   fetchBanners: fetchBanners,
   fetchPostImages: fetchPostImages,
   fetchRandomStores: fetchRandomStores,
+  fetchRandomBlogs:fetchRandomBlogs,
   fetchCategories: fetchCategories,
   featuredProducts: featuredProducts,
   trendingProducts: trendingProducts,
@@ -487,6 +488,22 @@ function fetchBlogItems(req, res) {
       }
     });
 }
+function fetchRandomBlogs(req, res) {
+  Blog.aggregate([
+    { $sample: { size: Number(req.query.limitNo) } },
+    { $project: { title: 1, img: 1, blogURL: 1, author: 1, CreatedAt: 1 } },
+  ]).exec(function (err, blogs) {
+    if (err) res.json(resHandler.respondError(err[0], err[1] || -1));
+    else if (!blogs)
+      res.json(
+        resHandler.respondError("Unable to fetch Blogs at the moment", -3)
+      );
+    else
+      res.json(
+        resHandler.respondSuccess(blogs, "Blogs fetched successfully", 2)
+      );
+  });
+}
 function fetchRandomStores(req, res) {
   Store.aggregate([
     { $sample: { size: Number(req.query.limitNo) } },
@@ -523,7 +540,7 @@ function searchQuery(req, res) {
     });
 }
 function fetchBlogsWithLimit(req, res) {
-  console.log(req.query)
+  console.log(req.query);
   var queryObj = {};
   if (req.query.quer) {
     if (req.query.quer != "null") queryObj.categoryRef = req.query.quer;

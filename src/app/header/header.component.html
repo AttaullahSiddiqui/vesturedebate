@@ -246,6 +246,7 @@
               class="mb-0"
               [(ngModel)]="searchInput"
               (focus)="switch = true"
+              (input)="searchFunc(searchInput)"
               (focusout)="focusOutFunc()"
               style="color: black !important"
             />
@@ -257,37 +258,28 @@
           *ngIf="searchInput && switch"
         >
           <div
-            class="o-grid__col o-grid__col--3-4-s o-grid__col--2-4-l"
+            class="o-grid__col o-grid__col--3-4-s o-grid__col--2-4-l controlOverflow"
             [ngClass]="{ mw50: !smallScreen }"
           >
-            <a class="c-teaser mb-0">
+            <a class="c-teaser mb-0" *ngIf="noResult">
               <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Chewy</h2>
+                <h2 class="c-teaser__title couponTitle">No result found for <b>"{{ searchInput }}"</b></h2>
               </div>
             </a>
-            <a class="c-teaser mb-0">
+            <a
+              class="c-teaser mb-0"
+              *ngFor="let store of storeArray | keyvalue"
+              [routerLink]="['/stores', store.value.storeURL]"
+            >
               <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Admitad</h2>
-              </div>
-            </a>
-            <a class="c-teaser mb-0">
-              <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Chewy</h2>
-              </div>
-            </a>
-            <a class="c-teaser mb-0">
-              <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Admitad</h2>
-              </div>
-            </a>
-            <a class="c-teaser mb-0">
-              <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Chewy</h2>
-              </div>
-            </a>
-            <a class="c-teaser mb-0">
-              <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">Admitad</h2>
+                <img
+                  [src]="store.value.img"
+                  width="60"
+                  height="60"
+                />&nbsp;&nbsp;
+                <h2 class="c-teaser__title couponTitle">
+                  {{ store.value.name }}
+                </h2>
               </div>
             </a>
           </div>

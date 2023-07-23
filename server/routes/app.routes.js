@@ -13,6 +13,7 @@ router.get("/fetchStoreProducts", fetchCtrl.fetchStoreProducts);
 router.get("/fetchBanners", fetchCtrl.fetchBanners);
 router.get("/fetchPostImages", fetchCtrl.fetchPostImages);
 router.get("/fetchRandomStores", fetchCtrl.fetchRandomStores);
+router.get("/fetchRandomBlogs", fetchCtrl.fetchRandomBlogs);
 router.get("/fetchCategories", fetchCtrl.fetchCategories);
 router.get("/featuredProducts", fetchCtrl.featuredProducts);
 router.get("/trendingProducts", fetchCtrl.trendingProducts);

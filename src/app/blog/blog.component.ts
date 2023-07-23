@@ -21,7 +21,8 @@ export class BlogComponent implements OnInit {
   faCheck = faCheckDouble;
   faBan = faBan;
   iFrameObj = null;
-  blogNode: any = [];
+  responseError = '';
+  blogNode: any = null;
   isFetching = false;
   blogURL: string = '';
   mobile: boolean = false;

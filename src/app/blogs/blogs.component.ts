@@ -36,18 +36,16 @@ export class BlogsComponent implements OnInit {
             0
           )
           .subscribe((res) => {
-            console.log(res)
             if (res.data) this.blogsArr = res.data;
             if (res.message == 'Unable to fetch more Blogs') {
               this.blogsArr = [];
               this.noBlogFound = true;
-            }
+            }else this.noBlogFound = false;
           });
       } else this.fetchBlogs();
     });
   }
   fetchBlogs() {
-    console.log("fetchblogs working")
     this.isFetching = true;
     this._dataService
       .fetchAPIWithLimit(
@@ -60,7 +58,6 @@ export class BlogsComponent implements OnInit {
         if (res.data) {
           this.blogsArr = [];
           this.blogsArr = res.data;
-          console.log(this.blogsArr)
           this.isFetching = false;
           window.scrollTo(0, 0);
         } else {

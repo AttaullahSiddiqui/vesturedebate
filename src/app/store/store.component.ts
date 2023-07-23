@@ -95,8 +95,7 @@ export class StoreComponent implements OnInit {
             this.couponsArray[i] = singleObj;
           }
           this.isBusy = false;
-        }
-        //  else this.errorHandler(res.message);
+        } else this.errorHandler(res.message);
       });
   }
   loadStoreData(id: any) {
@@ -132,8 +131,7 @@ export class StoreComponent implements OnInit {
           });
           this.backUpForStores = res.data['0']['categoryRef'][0];
           // this.secondTabData(res.data['0']['categoryRef'][0])
-        }
-        //  else this.errorHandler(res.message);
+        } else this.errorHandler(res.message);
       });
   }
   loadAnotherStore(id: any) {
@@ -157,12 +155,11 @@ export class StoreComponent implements OnInit {
     window.scrollTo(0, 0);
   }
   showCopyCodeDialog(couponNode: any) {
-    // this.editObj = { ...couponNode };
-    // this._dataService.showCopyCodeAlert(this.editObj);
-    this._dataService.showCopyCodeAlert({code:"checkcode",offerBox:"checok offerbox"});
-    // window.open(this.editObj.trackingLink, '_blank');
+    this.editObj = { ...couponNode };
+    this._dataService.showCopyCodeAlert(this.editObj);
+    window.open(this.editObj.trackingLink, '_blank');
   }
-  getDealFunc(couponNode?: any) {
+  getDealFunc(couponNode: any) {
     this.editObj = { ...couponNode };
     this._dataService.showGetDealAlert(this.editObj);
     window.open(this.editObj.trackingLink, '_blank');

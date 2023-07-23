@@ -37,7 +37,7 @@
 
     <swiper
       [config]="config"
-      class="swiper-h" 
+      class="swiper-h"
       [ngClass]="{ mobileView: smallScreen }"
       (swiper)="onSwiper($event)"
       #newSwiper
@@ -50,7 +50,7 @@
           (click)="openLink(slide.value.link)"
       /></ng-template>
     </swiper>
-    
+
     <div
       class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l js-post-card-wrap c-post-card-wrap"
       *ngFor="let blog of blogArray | keyvalue"
@@ -60,7 +60,7 @@
         <div class="c-post-card__media">
           <a class="c-post-card__image-wrap" aria-hidden="true" tabindex="-1">
             <img
-              alt="A Documentary About the Important Things"
+              alt="Blog Image"
               class="c-post-card__image"
               [src]="blog.value.img"
             />
@@ -111,211 +111,87 @@
       </div>
     </div>
   </div>
+  <div class="o-grid">
+    <div class="o-grid__col o-grid__col--full"><hr /></div>
+  </div>
+  <div class="o-grid">
+    <div class="o-grid__col o-grid__col--full">
+      <div class="c-title-bar">
+        <h3 class="c-title-bar__title">
+          <a class="c-title-bar__link"
+            >Popular Brands
+            <span data-icon="ei-chevron-right" data-size="s"></span
+          ></a>
+        </h3>
+      </div>
+    </div>
+  </div>
 
   <div class="o-grid">
     <div
-      class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l"
+      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-card-author-wrap"
+      *ngFor="let store of storeArray | keyvalue"
+      [routerLink]="['/stores', store.value.storeURL]"
     >
-      <div class="o-grid">
-        <div class="o-grid__col o-grid__col--full">
-          <div class="c-title-bar">
-            <h3 class="c-title-bar__title">
-              <a class="c-title-bar__link">Work</a>
-            </h3>
-          </div>
+      <a class="c-card-author">
+        <div class="c-card-author__media">
+          <img
+            class="c-card-author__image"
+            [src]="store.value.img"
+            alt="Olivia Thomas"
+            width="64"
+            height="64"
+          />
         </div>
 
-        <div class="o-grid__col">
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                It would be totally painless unconscious
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2018-11-29"
-                title="29 November 2018"
-                >29.Nov.2018</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="It would be totally painless unconscious"
-                src="../../assets/images/photo-1567103477235-e34a3d5da8a2-1.jpeg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                We have to put a barrier between us and the world!
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2015-12-22"
-                title="22 December 2015"
-                >22.Dec.2015</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="We have to put a barrier between us and the world!"
-                src="../../assets/images/photo-1524136964799-6ba980a735f7-3.jpg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                If you have an opportunity to use your voice!
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2015-12-22"
-                title="22 December 2015"
-                >22.Dec.2015</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="If you have an opportunity to use your voice!"
-                src="https://images.unsplash.com/photo-1526914383140-112d83e90d80?ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;fm&#x3D;jpg&amp;crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;ixid&#x3D;eyJhcHBfaWQiOjExNzczfQ&amp;w&#x3D;176"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                And that&#x27;s the double-truth, Ruth
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2015-12-22"
-                title="22 December 2015"
-                >22.Dec.2015</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="And that&#x27;s the double-truth, Ruth"
-                src="../../assets/images/photo-1567016557389-5246a1940bdc.jpeg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
+        <div class="c-card-author__content">
+          <h3 class="c-card-author__name">{{ store.value.name }}</h3>
+          <p hidden [innerHTML]="store.value.shortDes" #storeDes></p>
+          <p class="c-card-author__bio">
+            {{ getInnerText(storeDes) | slice : 0 : 100 }}
+          </p>
         </div>
-      </div>
+      </a>
     </div>
-
+  </div>
+  <div class="o-grid">
+    <div class="o-grid__col o-grid__col--full"><hr /></div>
+  </div>
+  <div class="o-grid">
     <div
-      class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l"
+      class="c-teaser-wrapper o-grid__col o-grid__col--4-4-s o-grid__col--4-4-m o-grid__col--1-3-l"
     >
-      <div class="o-grid">
+      <div class="o-grid js-grid">
         <div class="o-grid__col o-grid__col--full">
           <div class="c-title-bar">
             <h3 class="c-title-bar__title">
-              <a class="c-title-bar__link">Education</a>
+              <a class="c-title-bar__link">Random Blogs</a>
             </h3>
           </div>
         </div>
 
-        <div class="o-grid__col">
+        <div
+          class="js-grid__col o-grid__col--initial-grow o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-2-l cursor-pointer"
+          *ngFor="let blog of randomBlogs | keyvalue"
+          [routerLink]="['/blog', blog.value.blogURL]"
+        >
           <a class="c-teaser">
             <div class="c-teaser__content">
               <h3 class="c-teaser__title">
-                A Documentary About the Important Things
+                {{ blog.value.title | slice : 0 : 40 }}
               </h3>
               <time
                 class="c-teaser__date"
                 datetime="2018-11-29"
                 title="29 November 2018"
-                >29.Nov.2018</time
+                >{{ blog.value.CreatedAt | date : "MMM d" }}</time
               >
             </div>
             <div class="c-teaser__media">
               <img
-                class="c-teaser__image"
-                title="A Documentary About the Important Things"
-                src="../../assets/images/woodwatch--Hr_uHRfImo-unsplash-1.jpg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                We have to put a barrier between us and the world!
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2017-03-27"
-                title="27 March 2017"
-                >27.Mar.2017</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="We have to put a barrier between us and the world!"
-                src="../../assets/images/photo-1518214598173-1666bc921d66.jpg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                It Would Be Totally Painless - They&#x27;d Just Slip
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2017-03-27"
-                title="27 March 2017"
-                >27.Mar.2017</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="It Would Be Totally Painless - They&#x27;d Just Slip"
-                src="../../assets/images/8.jpg"
-                width="88"
-                height="72"
-              />
-            </div>
-          </a>
-          <a class="c-teaser">
-            <div class="c-teaser__content">
-              <h3 class="c-teaser__title">
-                Eddie Kim somehow managed to fill the snakes.
-              </h3>
-              <time
-                class="c-teaser__date"
-                datetime="2015-12-21"
-                title="21 December 2015"
-                >21.Dec.2015</time
-              >
-            </div>
-            <div class="c-teaser__media">
-              <img
-                class="c-teaser__image"
-                title="Eddie Kim somehow managed to fill the snakes."
-                src="../../assets/images/6.jpg"
-                width="88"
-                height="72"
+                class="c-teaser__image randomBlogImg"
+                alt="Blog Image"
+                [src]="blog.value.img"
               />
             </div>
           </a>
@@ -327,13 +203,16 @@
   <div class="o-grid">
     <div class="o-grid__col o-grid__col--full"><hr /></div>
   </div>
+  <div class="o-grid">
+    <div class="o-grid__col o-grid__col--full"><hr /></div>
+  </div>
 
   <div class="o-grid">
     <div class="o-grid__col o-grid__col--full">
       <div class="c-title-bar">
         <h3 class="c-title-bar__title">
-          <a class="c-title-bar__link u-font-size-small"
-            >Tags<span data-icon="ei-chevron-right" data-size="s"></span
+          <a class="c-title-bar__link"
+            >Random Stores<span data-icon="ei-chevron-right"></span
           ></a>
         </h3>
       </div>
@@ -341,21 +220,23 @@
 
     <div
       class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l o-grid__col--initial-grow"
+      *ngFor="let store of randomStores | keyvalue"
+      [routerLink]="['/stores', store.value.storeURL]"
     >
       <a class="c-tag-card">
         <img
           class="c-tag-card__image"
-          src="../../assets/images/tagsImg1.jpeg"
+          [src]="store.value.img"
           alt=""
           width="236"
           height="177"
         />
         <h2 class="c-tag-card__title">
-          Travel <span class="u-type-xs">(4)</span>
+          {{store.value.name}}
         </h2>
       </a>
     </div>
-    <div
+    <!-- <div
       class="o-grid__col o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-4-l o-grid__col--initial-grow"
     >
       <a class="c-tag-card">
@@ -402,92 +283,6 @@
           Work <span class="u-type-xs">(4)</span>
         </h2>
       </a>
-    </div>
-  </div>
-
-  <div class="o-grid">
-    <div class="o-grid__col o-grid__col--full"><hr /></div>
-  </div>
-  <div class="o-grid">
-    <div class="o-grid__col o-grid__col--full">
-      <div class="c-title-bar">
-        <h3 class="c-title-bar__title">
-          <a class="c-title-bar__link"
-            >Brands <span data-icon="ei-chevron-right" data-size="s"></span
-          ></a>
-        </h3>
-      </div>
-    </div>
-  </div>
-
-  <div class="o-grid">
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-card-author-wrap"
-      *ngFor="let store of storeArray | keyvalue; index as i"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media">
-          <img
-            class="c-card-author__image"
-            [src]="store.value.img"
-            alt="Olivia Thomas"
-            width="64"
-            height="64"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name">{{ store.value.name }}</h3>
-          <p hidden [innerHTML]="store.value.shortDes" #storeDes></p>
-          <p class="c-card-author__bio">
-            {{ getInnerText(storeDes) | slice : 0 : 100 }}
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-card-author-wrap"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-1.jpg"
-            alt="Sara James"
-            width="64"
-            height="64"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name">Sara James</h3>
-          <p class="c-card-author__bio">
-            Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
-    <div
-      class="o-grid__col o-grid__col--initial-grow o-grid__col--4-4-s o-grid__col--2-4-m o-grid__col--1-3-l c-card-author-wrap"
-    >
-      <a class="c-card-author">
-        <div class="c-card-author__media">
-          <img
-            class="c-card-author__image"
-            src="../../assets/images/guillaume-bleyer-Dep2HTKqGj0-unsplash-3.jpg"
-            alt="Amelia Harry"
-            width="64"
-            height="64"
-          />
-        </div>
-
-        <div class="c-card-author__content">
-          <h3 class="c-card-author__name">Amelia Harry</h3>
-          <p class="c-card-author__bio">
-            Author &amp; developer of Aspire Themes. Minimalist.
-          </p>
-        </div>
-      </a>
-    </div>
+    </div> -->
   </div>
 </div>
