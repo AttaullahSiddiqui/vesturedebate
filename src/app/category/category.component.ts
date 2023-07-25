@@ -81,7 +81,7 @@ export class CategoryComponent implements OnInit {
         if (res.data) {
           this.storeArr = res.data;
           this.isLoading = false;
-          if (!res.data.length) this.noStoreFound = true
+          if (!res.data.length) this.noStoreFound = true;
           else this.noStoreFound = false;
         } else {
           this._dataService.errorToast(res.message);

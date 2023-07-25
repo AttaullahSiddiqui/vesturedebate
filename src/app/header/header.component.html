@@ -37,11 +37,11 @@
                 <nav class="c-nav-wrap">
                   <ul
                     class="c-nav o-plain-list"
-                    *ngIf="
-                      !showSearchBarArray(['store', 'services', 'category'])
-                    "
                   >
                     <li
+                      *ngIf="
+                        !showSearchBarArray(['store', 'services', 'category'])
+                      "
                       class="c-nav__item cursor-pointer"
                       [routerLink]="['']"
                       routerLinkActive="active"
@@ -49,86 +49,50 @@
                     >
                       <a class="c-nav__link">Home</a>
                     </li>
+                    <ng-container
+                      *ngIf="
+                        !showSearchBarArray(['store', 'services', 'category'])
+                      "
+                    >
+                      <li
+                        class="c-nav__item cursor-pointer"
+                        routerLink="/blogs/travel"
+                        *ngFor="let cat of forBlogCategories | keyvalue"
+                        [routerLink]="['/blogs', cat.value._id]"
+                      >
+                        <a class="c-nav__link">{{ cat.value.name }}</a>
+                      </li>
+                    </ng-container>
                     <li
+                      *ngIf="
+                        showSearchBarArray(['store', 'services', 'category'])
+                      "
                       class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/travel"
-                      *ngFor="let cat of forBlogCategories | keyvalue"
-                      [routerLink]="['/blogs', cat.value._id]"
-                    >
-                      <a class="c-nav__link">{{ cat.value.name }}</a>
-                    </li>
-                    <!-- <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/food"
-                    >
-                      <a class="c-nav__link">Food</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/style"
-                    >
-                      <a class="c-nav__link">Style</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/pets"
-                    >
-                      <a class="c-nav__link">Pets</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/health"
-                    >
-                      <a class="c-nav__link">Health</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/blogs/fitness"
-                    >
-                      <a class="c-nav__link">Fitness</a>
-                    </li> -->
-                    <!-- <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/categories"
+                      routerLink="/services"
                       routerLinkActive="active"
                     >
-                      <a class="c-nav__link">Categories</a>
+                      <a class="c-nav__link">Home</a>
                     </li>
                     <li
+                      *ngIf="
+                        showSearchBarArray(['store', 'services', 'category'])
+                      "
                       class="c-nav__item cursor-pointer"
                       routerLink="/stores"
                       routerLinkActive="active"
                     >
-                      <a class="c-nav__link">Stores</a>
+                      <a class="c-nav__link">All Stores</a>
                     </li>
                     <li
+                      *ngIf="
+                        showSearchBarArray(['store', 'services', 'category'])
+                      "
                       class="c-nav__item cursor-pointer"
-                      routerLink="/blogs"
+                      [routerLink]="['category', 'singlecategory']"
                       routerLinkActive="active"
                     >
-                      <a class="c-nav__link">Blogs</a>
+                      <a class="c-nav__link">Categories</a>
                     </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/about"
-                      routerLinkActive="active"
-                    >
-                      <a class="c-nav__link">About</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/privacy"
-                      routerLinkActive="active"
-                    >
-                      <a class="c-nav__link">Privacy</a>
-                    </li>
-                    <li
-                      class="c-nav__item cursor-pointer"
-                      routerLink="/termsandconditions"
-                      routerLinkActive="active"
-                    >
-                      <a class="c-nav__link">Terms</a>
-                    </li> -->
                     <li class="c-nav__item cursor-pointer">
                       <button
                         class="c-nav__link c-color-mode-btn js-mode-toggle js-mode-toggle-title"
@@ -143,45 +107,8 @@
                         ></span>
                       </button>
                     </li>
-
-                    <!-- <li class="c-nav__item cursor-pointer">
-                      <button
-                        class="gh-search-icon"
-                        aria-label="search"
-                        data-ghost-search
-                        style="
-                          display: inline-flex;
-                          justify-content: center;
-                          align-items: center;
-                          width: 32px;
-                          height: 32px;
-                          padding: 0;
-                          border: 0;
-                          color: inherit;
-                          background-color: transparent;
-                          cursor: pointer;
-                          outline: none;
-                        "
-                      >
-                        <svg
-                          width="20"
-                          height="20"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M14.949 14.949a1 1 0 0 1 1.414 0l6.344 6.344a1 1 0 0 1-1.414 1.414l-6.344-6.344a1 1 0 0 1 0-1.414Z"
-                            fill="currentColor"
-                          />
-                          <path
-                            d="M10 3a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm-9 7a9 9 0 1 1 18 0 9 9 0 0 1-18 0Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </button>
-                    </li> -->
                   </ul>
-                  <ul
+                  <!-- <ul
                     class="c-nav o-plain-list"
                     *ngIf="
                       showSearchBarArray(['store', 'services', 'category'])
@@ -222,7 +149,7 @@
                         ></span>
                       </button>
                     </li>
-                  </ul>
+                  </ul> -->
                 </nav>
               </div>
 
@@ -263,7 +190,9 @@
           >
             <a class="c-teaser mb-0" *ngIf="noResult">
               <div class="c-teaser__content">
-                <h2 class="c-teaser__title couponTitle">No result found for <b>"{{ searchInput }}"</b></h2>
+                <h2 class="c-teaser__title couponTitle">
+                  No result found for <b>"{{ searchInput }}"</b>
+                </h2>
               </div>
             </a>
             <a
@@ -284,7 +213,7 @@
             </a>
           </div>
         </div>
-        <header class="c-header" *ngIf="false">
+        <!-- <header class="c-header" *ngIf="false">
           <div class="o-grid o-grid--center">
             <div class="o-grid__col o-grid__col--3-4-s o-grid__col--1-3-l">
               <div class="c-logo">
@@ -362,7 +291,7 @@
               </div>
             </div>
           </div>
-        </header>
+        </header> -->
       </div>
     </div>
   </div>
