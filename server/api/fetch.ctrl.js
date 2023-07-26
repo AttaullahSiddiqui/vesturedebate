@@ -540,7 +540,6 @@ function searchQuery(req, res) {
     });
 }
 function fetchBlogsWithLimit(req, res) {
-  console.log(req.query);
   var queryObj = {};
   if (req.query.quer) {
     if (req.query.quer != "null") queryObj.categoryRef = req.query.quer;
@@ -579,8 +578,6 @@ function blogsForSiteMap(req, res) {
 function fetchSingleBlog(req, res) {
   Blog.findOne({ blogURL: req.query._id }).exec(function (err, blog) {
     if (err) {
-      console.log("Errorrr bloggggg");
-      console.log(err);
       resHandler.respondError(err);
     } else {
       if (blog)

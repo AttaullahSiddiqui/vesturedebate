@@ -24,3 +24,10 @@ img.randomBlogImg{
   width: 110px !important;
   height: 60px !important;
 }
+a.blogImageAdjust{
+  padding-top: 0 !important;
+}
+a.blogImageAdjust > img.c-post-card__image{
+  height: auto !important;
+  position: relative !important;
+}

@@ -17,7 +17,10 @@
     >
       <div class="o-grid">
         <div class="o-grid__col">
-          <a class="c-teaser" *ngFor="let coupon of couponsArray | keyvalue">
+          <a
+            class="c-teaser"
+            *ngFor="let coupon of couponsArray | keyvalue | sortby"
+          >
             <div class="c-teaser__content">
               <h3 class="c-teaser__title couponTitle">
                 {{ coupon.value.offerBox }}
